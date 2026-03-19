@@ -55,3 +55,19 @@ Accepts a list of prediction requests.
 ## Notes
 
 The current code is a **production-oriented scaffold**, not a trained model package. The service layer is intentionally interface-driven so YOLOv8, EfficientNet, and Tesseract can be swapped in without changing the API or pipeline contracts.
+
+
+## What you need to train and deploy this online
+
+At a high level, you will need to:
+
+1. collect and annotate a real dataset for detection, classification, and OCR,
+2. train YOLOv8 for detection,
+3. generate aircraft, tail, and logo crops,
+4. train aircraft-type and airline classifiers,
+5. integrate Tesseract or a learned OCR model for registrations,
+6. replace the mock services in `services/` with real model adapters,
+7. package the API in Docker, and
+8. deploy it to a cloud host with monitoring, storage, and versioned model weights.
+
+See `docs/training_and_deployment.md` for the concrete step-by-step plan.
